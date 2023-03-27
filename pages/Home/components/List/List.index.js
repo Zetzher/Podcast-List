@@ -5,15 +5,15 @@ import "./List.index.scss";
 
 const List = ({ info = [], handleSearch }) => {
   return (
-    <>
-      <div className="list-header">
+    <section className="list-container">
+      <Row className="list-header">
         <Badge count={info.length} showZero color="#4991D5" />
         <Input
           className="list-input"
           placeholder="Filter podcasts..."
           onChange={(e) => handleSearch({ str: e.target.value })}
         />
-      </div>
+      </Row>
       <Row gutter={16}>
         {info.map((data) => {
           return (
@@ -42,7 +42,7 @@ const List = ({ info = [], handleSearch }) => {
           );
         })}
       </Row>
-    </>
+    </section>
   );
 };
 

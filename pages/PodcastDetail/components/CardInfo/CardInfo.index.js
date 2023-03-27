@@ -1,14 +1,18 @@
 import React from "react";
-import { Typography } from 'antd';
+import { Card } from "antd";
+import { Typography } from "antd";
 
+const { Meta } = Card;
 const { Title } = Typography;
 
-const CardInfo = ({ summary, title }) => {
+const CardInfo = ({ image, summary, title }) => {
   return (
-    <div>
-      <Title level={4}>{title}</Title>
-      <Title level={5}>{summary}</Title>
-    </div>
+    <Card cover={<img src={image} />} bordered={false}>
+      <Meta
+        title={<Title level={4}>{title}</Title>}
+        description={<Title level={5}>{summary}</Title>}
+      />
+    </Card>
   );
 };
 

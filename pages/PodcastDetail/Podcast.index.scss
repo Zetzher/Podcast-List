@@ -1,0 +1,10 @@
+.podcast {
+    &-container {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    &-header {
+        margin-left: 20px;
+    }
+}
