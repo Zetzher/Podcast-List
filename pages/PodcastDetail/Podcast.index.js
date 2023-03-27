@@ -6,17 +6,15 @@ import { Header, ListInfo } from "./components";
 import "./Podcast.index.scss";
 
 const PodcastIndex = () => {
-  const { summary, podcast, loading } = hooks();
-  console.log(podcast);
+  const { podcast, loading } = hooks();
   return (
     <section className="podcast-container">
       {!loading && (
         <>
-          <Col span={6}>
+          <Col span={5}>
             <CardInfo
               title={podcast?.results[0].artistName}
               image={podcast?.results[0].artworkUrl600}
-              summary={summary}
             />
           </Col>
           <Col span={16} className="podcast-header">

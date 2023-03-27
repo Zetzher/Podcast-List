@@ -1,7 +1,11 @@
+audio {
+    width: 100%;
+}
+
 .chapter {
     &-container {
         padding: 10px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
     }
 }

@@ -25,7 +25,11 @@ const List = ({ info = [], handleSearch }) => {
               />
               <Link
                 to={`/podcast/${data.id.attributes["im:id"]}`}
-                state={{ summary: data.summary.label }}
+                state={{
+                  summary: data.summary.label,
+                  img: data["im:image"][2].label,
+                  author: data["im:artist"].label,
+                }}
               >
                 <Card
                   title={

@@ -139,15 +139,19 @@ breakpoint {
   display: inline-block;
 }
 
-/* 2 columnas para tablets */
-@media (min-width: 420px) {
-  breakpoint {
-    max-width: 48%;
+.app-header {
+  padding: 0 20px 0 20px;
+
+  &-link {
+    position: relative;
+    top: 10px;
+    text-decoration: none;
   }
-}
-/* 4 columnas para grandes dispositivos*/
-@media (min-width: 760px) {
-  breakpoint {
-    max-width: 24%;
+
+  &-loader {
+    position: relative;
+    top: 20px;
   }
+  display: flex;
+  justify-content: space-between;
 }

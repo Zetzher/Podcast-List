@@ -4,7 +4,7 @@ import { retrievePodcastInfo } from "../../resolvers";
 
 const PodcastHooks = () => {
   const {
-    state: { summary },
+    state: { img, author, summary },
   } = useLocation();
   const { id } = useParams();
   const [podcast, setPodcast] = useState([]);
@@ -16,6 +16,11 @@ const PodcastHooks = () => {
       setLoading(false);
     };
     retrieveInformation();
+
+    if (localStorage.getItem("summary") !== summary)
+      localStorage.setItem("summary", summary);
+    localStorage.setItem("img", img);
+    localStorage.setItem("author", author);
   }, [id]);
   return { summary, podcast, loading };
 };

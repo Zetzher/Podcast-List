@@ -1,12 +1,11 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-const ChapterHooks = () => {
+const IndexHooks = () => {
   const {
-    state: { title, img, summary, previewUrl },
+    state: { description, previewUrl, trackName },
   } = useLocation();
-
-  return { title, img, summary, previewUrl };
+  return { description, previewUrl, trackName };
 };
 
-export default ChapterHooks;
+export default IndexHooks;

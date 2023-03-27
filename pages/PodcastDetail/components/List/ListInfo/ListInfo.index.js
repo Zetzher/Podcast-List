@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Table } from "antd";
 import { Typography } from "antd";
 
@@ -9,7 +10,19 @@ const columns = [
     title: "Title",
     dataIndex: "trackName",
     key: "trackname",
-    render: (text) => <Text level={5}>{text}</Text>,
+    render: (
+      text,
+      { collectionId, trackId, description, previewUrl, trackName },
+      i
+    ) => (
+      <Link
+        key={i}
+        to={`/podcast/${collectionId}/episode/${trackId}`}
+        state={{ description, previewUrl, trackName }}
+      >
+        <Text level={5}>{text}</Text>
+      </Link>
+    ),
   },
   {
     title: "Date",
