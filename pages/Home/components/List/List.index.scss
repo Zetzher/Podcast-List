@@ -1,0 +1,12 @@
+.list {
+  &-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  }
+  &-input {
+    width: 20vw;
+    margin-left: 10px;
+  }
+}
