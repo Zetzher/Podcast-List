@@ -1,7 +1,8 @@
 import React from "react";
 import hooks from "./Podcast.hooks";
 import { Col } from "antd";
-import { CardInfo, Header, ListInfo } from "./components";
+import CardInfo from "../../components/CardInfo/CardInfo.index";
+import { Header, ListInfo } from "./components";
 import "./Podcast.index.scss";
 
 const PodcastIndex = () => {
@@ -11,16 +12,16 @@ const PodcastIndex = () => {
     <section className="podcast-container">
       {!loading && (
         <>
-          <Col span={4}>
+          <Col span={6}>
             <CardInfo
               title={podcast?.results[0].artistName}
               image={podcast?.results[0].artworkUrl600}
               summary={summary}
             />
           </Col>
-          <Col span={18} className="podcast-header">
+          <Col span={16} className="podcast-header">
             <Header count={podcast?.resultCount} />
-            <ListInfo />
+            <ListInfo info={podcast.results.slice(1, podcast.results.length)} />
           </Col>
         </>
       )}

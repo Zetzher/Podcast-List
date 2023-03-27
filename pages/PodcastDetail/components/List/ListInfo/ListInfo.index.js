@@ -1,81 +1,41 @@
 import React from "react";
-import { Space, Table, Tag } from "antd";
+import { Table } from "antd";
+import { Typography } from "antd";
+
+const { Text } = Typography;
 
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    render: (text) => <a>{text}</a>,
+    title: "Title",
+    dataIndex: "trackName",
+    key: "trackname",
+    render: (text) => <Text level={5}>{text}</Text>,
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
+    title: "Date",
+    dataIndex: "releaseDate",
+    key: "releasedate",
+    render: (data) => new Date(data).toLocaleDateString("en-GB"),
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
+    title: "Duration",
+    dataIndex: "trackTimeMillis",
+    key: "tracktimemillis",
+    render: (time) => new Date(time).toISOString().slice(11, 19),
   },
 ];
 
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-];
-
-const ListInfo = () => {
-  return <Table columns={columns} dataSource={data} />;
+const ListInfo = ({ info }) => {
+  return (
+    <span style={{ position: "relative", top: 10 }}>
+      <Table
+        className="table-container"
+        size="small"
+        columns={columns}
+        dataSource={info}
+      />
+    </span>
+  );
 };
 
 export default ListInfo;
