@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Avatar, Badge, Card, Col, Input, Row } from "antd";
 import "./List.index.scss";
 
-const List = ({ info = [], handleSearch }) => {
+const List = ({ info = [], handleSearch, setLoading }) => {
   return (
     <section className="list-container">
       <Row className="list-header">
@@ -30,6 +30,7 @@ const List = ({ info = [], handleSearch }) => {
                   img: data["im:image"][2].label,
                   author: data["im:artist"].label,
                 }}
+                onClick={() => setLoading(true)}
               >
                 <Card
                   title={

@@ -5,8 +5,8 @@ import CardInfo from "../../components/CardInfo/CardInfo.index";
 import { Header, ListInfo } from "./components";
 import "./Podcast.index.scss";
 
-const PodcastIndex = () => {
-  const { podcast, loading } = hooks();
+const PodcastIndex = ({ setLoading }) => {
+  const { podcast, loading } = hooks({ setLoader: setLoading });
   return (
     <section className="podcast-container">
       {!loading && (
@@ -19,7 +19,7 @@ const PodcastIndex = () => {
           </Col>
           <Col span={16} className="podcast-header">
             <Header count={podcast?.resultCount} />
-            <ListInfo info={podcast.results.slice(1, podcast.results.length)} />
+            <ListInfo info={podcast.results.slice(1, podcast.results.length)} setLoading={setLoading} />
           </Col>
         </>
       )}

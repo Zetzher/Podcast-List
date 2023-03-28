@@ -7,8 +7,8 @@ import "./Chapter.index.scss";
 const { Meta } = Card;
 const { Paragraph, Title } = Typography;
 
-const ChapterIndex = () => {
-  const { description, previewUrl, trackName } = hooks();
+const ChapterIndex = ({ setLoading }) => {
+  const { description, previewUrl, trackName } = hooks({ setLoading });
   return (
     <section className="chapter-container">
       <Col span={6}>
@@ -19,8 +19,7 @@ const ChapterIndex = () => {
           <Meta
             title={<Title level={4}>{trackName}</Title>}
             description={
-              <Paragraph
-              >
+              <Paragraph>
                 <span dangerouslySetInnerHTML={{ __html: description }}></span>
               </Paragraph>
             }

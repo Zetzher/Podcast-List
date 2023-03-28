@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { retrievePodcastInfo } from "../../resolvers";
 
-const PodcastHooks = () => {
+const PodcastHooks = ({ setLoader }) => {
   const {
     state: { img, author, summary },
   } = useLocation();
@@ -11,6 +11,7 @@ const PodcastHooks = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoader(false);
     const retrieveInformation = async () => {
       await retrievePodcastInfo({ id, onSuccess: setPodcast });
       setLoading(false);

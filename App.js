@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import { Divider, Spin, Typography } from "antd";
-import { ChapterDetail, Home, PodcastDetail } from "./pages/index";
+import { ChapterDetail, Home, PodcastDetail } from "./pages/index.js";
 import "./index.scss";
 
 const { Title } = Typography;
@@ -21,11 +21,11 @@ const App = () => {
       </div>
       <Divider />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/podcast/:id" element={<PodcastDetail />} />
+        <Route path="/" element={<Home setLoading={setLoading} />} />
+        <Route path="/podcast/:id" element={<PodcastDetail setLoading={setLoading} />} />
         <Route
           path="/podcast/:id/episode/:episodeId"
-          element={<ChapterDetail />}
+          element={<ChapterDetail setLoading={setLoading} />}
         />
       </Routes>
     </>

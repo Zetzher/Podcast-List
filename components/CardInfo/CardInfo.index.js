@@ -8,9 +8,9 @@ const { Paragraph, Title } = Typography;
 const CardInfo = () => {
   const summary = localStorage.getItem("summary");
   const author = localStorage.getItem("author");
-  const img = localStorage.getItem("img");
+  const avatar = localStorage.getItem("img");
   return (
-    <Card cover={<img src={img} />} bordered={false}>
+    <Card cover={<img alt="artist-profile" src={avatar} />} bordered={false}>
       <Meta
         title={<Title level={4}>{author}</Title>}
         description={
